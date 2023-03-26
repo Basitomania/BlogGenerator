@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "private": true,
+  "scripts": {
+    "start": "lite-server",
+    "build": "webpack --watch"
+  },
+  "dependencies": {
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "dotenv": "^16.0.3",
+    "lite-server": "^2.6.1",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
+  }
+}
