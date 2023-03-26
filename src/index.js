@@ -17,7 +17,6 @@ const submitHandler = async () => {
 
   if (!inputText) return;
   const prompt = `I want to write a blog post about ${inputText}. Give a list of 5 sections in a numbered bullet point format about this blog post.`;
-
   try {
     const response = await openai.createCompletion({
       model: "text-davinci-003",
@@ -46,35 +45,36 @@ const submitHandler = async () => {
         max_tokens: 750,
         temperature: 0.7,
       });
+
       paragraphPromises.push(sectionPromise);
     }
 
     const bodyResponses = await Promise.all(paragraphPromises);
+    console.log("BodyResponses:", bodyResponses);
 
     for (const articleBodyResponse of bodyResponses) {
       const newResponse = articleBodyResponse.data.choices[0].text;
       paragraphResponse.push(newResponse);
     }
 
-    for (const [index, paragraph] of paragraphResponse.entries()) {
+    console.log("ParagraphResponses:", paragraphResponse);
+
+    for (const index in paragraphResponse) {
+      console.log("Index:", index);
+      console.log("Value:", paragraphResponse[index]);
+
       const paragraphList = document.createElement("li");
-      const headerText = document.createElement('h3');
+      const headerText = document.createElement("h3");
 
       headerText.innerText = listedItems[index];
-      paragraphList.innerText = paragraph;
+      paragraphList.innerText = paragraphResponse[index];
 
       articleBodySection.appendChild(headerText);
       articleBodySection.appendChild(paragraphList);
     }
-
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
   }
-}
+};
 
-
-
-
-
-button.addEventListener("click",  submitHandler);
+button.addEventListener("click", submitHandler);

@@ -1,3 +1,5 @@
 Instruction
 Run npm install
 Run npm run build
+Copy index.html into dist folder
+Serve the static html in dist folder with any live server

@@ -4,34 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ProjectManager</title>
-    <link rel="stylesheet" href="index.css" />
-    <script src="./src/index.js" defer></script>
+    <title>BlogGenerator</title>
+    <link href="styles.css" />
+    <script src="main.js" defer></script>
   </head>
   <body>
     <div id="app">
-      <form id="user-input" onsubmit="return false">
+      <form id="user-input">
         <div class="form-control">
           <label for="title">Title</label>
           <input type="text" id="title" />
         </div>
-        <!-- <div class="form-control">
-          <label for="description">Description</label>
-          <textarea id="description" rows="3"></textarea>
-        </div> -->
-        <button type="submit" id="button">ADD ARTICLE</button>
+        <button type="button" id="button">ADD ARTICLE</button>
       </form>
       <section class="projects" id="active-projects">
         <header>
-          <h2>ACTIVE PROJECTS</h2>
+          <h2>Section List</h2>
         </header>
-        <ul id="active-projects-list"></ul>
+        <ul id="article-section"></ul>
       </section>
       <section class="projects" id="finished-projects">
         <header>
-          <h2></h2>
+          <h2>Paragraph Section</h2>
         </header>
-        <ul></ul>
+        <ul id="article-body"></ul>
       </section>
     </div>
   </body>
